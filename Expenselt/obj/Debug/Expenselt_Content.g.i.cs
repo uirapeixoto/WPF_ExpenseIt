@@ -8,6 +8,21 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/toggle-show.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/btn-delete.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/btn-edit.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/btn-list.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/button_rotate_cw.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/checked.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/cut.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/delete.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/expand.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/icn-accept.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/image_profile_user.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/managernew.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/managersearch.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/refresh.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/reload.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/search.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("assets/img/toggle-hide.png")]
 
 

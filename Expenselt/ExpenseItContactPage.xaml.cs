@@ -48,5 +48,11 @@ namespace Expenselt
 
         }
 
+        private void SalvarContatoCommand(object sender, RoutedEventArgs e)
+        {
+            var contacts = _person.Contacts;
+            var gridContact = GridContacts.DataContext;
+            
+        }
     }
 }

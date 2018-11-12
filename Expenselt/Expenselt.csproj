@@ -138,5 +138,23 @@
   <ItemGroup>
     <Resource Include="Assets\Img\toggle-show.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Img\btn-delete.png" />
+    <Resource Include="Assets\Img\btn-edit.png" />
+    <Resource Include="Assets\Img\btn-list.png" />
+    <Resource Include="Assets\Img\button_rotate_cw.png" />
+    <Resource Include="Assets\Img\checked.png" />
+    <Resource Include="Assets\Img\Cut.png" />
+    <Resource Include="Assets\Img\delete.png" />
+    <Resource Include="Assets\Img\expand.png" />
+    <Resource Include="Assets\Img\icn-accept.png" />
+    <Resource Include="Assets\Img\image_profile_user.png" />
+    <Resource Include="Assets\Img\managerNew.png" />
+    <Resource Include="Assets\Img\managerSearch.png" />
+    <Resource Include="Assets\Img\refresh.png" />
+    <Resource Include="Assets\Img\reload.png" />
+    <Resource Include="Assets\Img\search.png" />
+    <Resource Include="Assets\Img\toggle-hide.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
