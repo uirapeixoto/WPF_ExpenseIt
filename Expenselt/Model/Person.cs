@@ -1,14 +1,16 @@
-﻿using System;
+﻿using Expenselt.Model.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Windows;
 
 namespace Expenselt.Model
 {
-    public class Person : INotifyPropertyChanged
+    public class Person :   INotifyPropertyChanged
     {
 
         private ObservableCollection<Contact> _contacts;
@@ -24,8 +26,7 @@ namespace Expenselt.Model
             }
             set {
                 _contacts = value;
-                MessageBox.Show("A propriedade foi alterada");
-                this.RaisePropertyChanged("_contacts");
+                this.RaisePropertyChanged("Contacts");
             }
         }
 
@@ -37,5 +38,6 @@ namespace Expenselt.Model
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
     }
 }

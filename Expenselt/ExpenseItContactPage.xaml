@@ -77,8 +77,9 @@
                     </Button>
                 </StackPanel>
                 <StackPanel>
-                    <DataGrid x:Name="GridContacts" ItemsSource="{Binding Contacts}" 
+                    <DataGrid x:Name="GridContacts" ItemsSource="{Binding Contacts, Mode=TwoWay}" 
                               GridLinesVisibility="None" ColumnHeaderStyle="{StaticResource columnHeaderStyle}" 
+                              CanUserAddRows="True" 
                               AutoGenerateColumns="False"  Margin="10,105,63,322" Grid.Row="3"  >
 
                         <DataGrid.Columns>
