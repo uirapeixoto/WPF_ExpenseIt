@@ -28,18 +28,35 @@ namespace Expenselt
 
             var service = new PersonService();
             peopleListBox.ItemsSource = service.GetPerson();
+
+            Style rowStyle = new Style(typeof(ListBox));
+            rowStyle.Setters.Add(new EventSetter(Control.MouseLeftButtonDownEvent, new MouseButtonEventHandler(Row_DoubleClick)));
+            peopleListBox.SelectedItem = rowStyle;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             var person = peopleListBox.SelectedItem as Person;
-            var resposta = MessageBox.Show(string.Format("O item selecionado foi: {0}", person.Name ), "Mensagem", MessageBoxButton.YesNo);
+            var resposta = MessageBox.Show(string.Format("O item selecionado foi: {0}", person.Name), "Mensagem", MessageBoxButton.YesNo);
             if (resposta == MessageBoxResult.Yes)
             {
                 // View Expense Report  
                 ExpenseReportPage expenseReportPage = new ExpenseReportPage(this.peopleListBox.SelectedItem);
                 this.NavigationService.Navigate(expenseReportPage);
-            }   
+            }
         }
+
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            var person = peopleListBox.SelectedItem as Person;
+            var resposta = MessageBox.Show(string.Format("O item selecionado foi: {0}", person.Name), "Contact List", MessageBoxButton.YesNo);
+            if (resposta == MessageBoxResult.Yes)
+            {
+                // View Expense Report  
+                ExpenseItContactPage expenseContactPage = new ExpenseItContactPage(this.peopleListBox.SelectedItem);
+                this.NavigationService.Navigate(expenseContactPage);
+            }
+        }
+
     }
 }

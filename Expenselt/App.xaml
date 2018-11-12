@@ -43,6 +43,16 @@
             <Setter Property="HorizontalAlignment" Value="Left" />
         </Style>
 
+        <!-- List header style -->
+        <Style x:Key="listHeaderRowStyle" TargetType="{x:Type DataGridCell}">
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="Background" Value="#F3F3F3F3" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="TextElement.Foreground" Value="Black" />
+        </Style>
+
         <!-- Button style -->
         <Style x:Key="buttonStyle" TargetType="{x:Type Button}">
             <Setter Property="Width" Value="125" />

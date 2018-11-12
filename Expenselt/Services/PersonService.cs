@@ -8,7 +8,7 @@ namespace Expenselt.Services
 {
     public class PersonService
     {
-        public List<Person> GetPerson()
+        public IEnumerable<Person> GetPerson()
         {
             return new List<Person> {
                 new Person{Id = 1, Name = "Mike", Department = "Legal"},
