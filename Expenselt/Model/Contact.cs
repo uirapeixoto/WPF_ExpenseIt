@@ -7,6 +7,7 @@ namespace Expenselt.Model
         public string Description { get; set; }
         public string Value { get; set; }
         public Person Person { get; set; }
+        public Estado Estado { get; set; }
 
     }
 }

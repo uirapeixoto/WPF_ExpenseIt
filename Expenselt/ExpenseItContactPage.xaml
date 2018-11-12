@@ -46,6 +46,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition />
                 <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
@@ -59,23 +60,23 @@
                     <!-- Name -->
                     <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="0" Orientation="Horizontal">
                         <Label Style="{StaticResource labelStyle}" Margin="0,70,0,-68">Name:</Label>
-                        <Label Style="{StaticResource labelStyle}" Content="{Binding Path=Name}"></Label>
+                        <Label Style="{StaticResource labelStyle}" Margin="0,70,0,-100" Content="{Binding Path=Name}"></Label>
                     </StackPanel>
 
                     <!-- Department -->
                     <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Orientation="Horizontal">
                         <Label Style="{StaticResource labelStyle}" Margin="0,70,0,-68">Department:</Label>
-                        <Label Style="{StaticResource labelStyle}" Content="{Binding Path=Department}"></Label>
+                        <Label Style="{StaticResource labelStyle}" Margin="0,70,0,-100" Content="{Binding Path=Department}"></Label>
                     </StackPanel>
 
                 </StackPanel>
             </Grid>
             <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
-                    <Button  Height="30"  x:Name="Add" ToolTip="Adicionar"   Margin="20,0,0,0" Width="30" Click="IncluirContatoCommand">
+                    <Button  Height="30"  x:Name="Add" ToolTip="Adicionar"   Margin="10,10,0,300" Width="30" Click="IncluirContatoCommand">
                         <Image Source=".\Assets\Img\toggle-show.png" />
                     </Button>
-                    <Button  Height="30"  x:Name="Save" ToolTip="Salvar"   Margin="20,0,0,0" Width="30" Click="SalvarContatoCommand">
+                    <Button  Height="30"  x:Name="Save" ToolTip="Salvar"   Margin="5,10,0,300" Width="30" Click="SalvarContatoCommand">
                         <Image Source=".\Assets\Img\checked.png" />
                     </Button>
                 </StackPanel>
@@ -83,12 +84,13 @@
                     <DataGrid x:Name="GridContacts" ItemsSource="{Binding Contacts, Mode=TwoWay}" 
                               GridLinesVisibility="None" ColumnHeaderStyle="{StaticResource columnHeaderStyle}" 
                               CanUserAddRows="True" 
-                              AutoGenerateColumns="False"  Margin="10,105,63,322" Grid.Row="3"  >
+                              AutoGenerateColumns="False" Margin="10,105,63,322" Grid.Row="3" >
 
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="10" IsReadOnly="True" Binding="{Binding Description}" Header="Id" Visibility="Collapsed"/>
                             <DataGridTextColumn Width="80" IsReadOnly="True" CellStyle="{StaticResource listHeaderRowStyle}" Binding="{Binding Description}"  Header="Description"/>
                             <DataGridTextColumn Width="120" Binding="{Binding Value}"  Header="Value"/>
+                            <DataGridTextColumn Width="120" Binding="{Binding Value}"  Header="Value" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

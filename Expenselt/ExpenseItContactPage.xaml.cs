@@ -34,9 +34,9 @@ namespace Expenselt
         public void IncluirContatoCommand(object sender, RoutedEventArgs e)
         {
             var contact = new List<Contact> {
-                new Contact{ Person = _person, Description = "Nome",Value = "" },
-                new Contact{ Person = _person, Description = "E-mail",Value = "" },
-                new Contact{ Person = _person, Description = "Telefone",Value = "" }
+                new Contact{ Person = _person, Description = "Nome",Value = "", Estado = new Estado{Id = 0, UF = "" }},
+                new Contact{ Person = _person, Description = "E-mail",Value = "", Estado = new Estado{Id = 0, UF = "" }},
+                new Contact{ Person = _person, Description = "Telefone",Value = "", Estado = new Estado{Id = 0, UF = "" }} 
             };
 
 
