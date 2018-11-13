@@ -161,12 +161,14 @@
     <Compile Include="ExpenseItContactPage.xaml.cs">
       <DependentUpon>ExpenseItContactPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Model\Abstract\NotificationObject.cs" />
+    <Compile Include="Model\Abstract\AbstractNotificationObject.cs" />
     <Compile Include="Model\Abstract\ObservableCollectionEx.cs" />
     <Compile Include="Model\Contact.cs" />
+    <Compile Include="Model\Estado.cs" />
     <Compile Include="Model\Expense.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Services\ContactServices.cs" />
+    <Compile Include="Services\EstadoService.cs" />
     <Compile Include="Services\ExpenseService.cs" />
     <Compile Include="Services\PersonService.cs" />
     <Page Include="ExpenseItContactPage.xaml">

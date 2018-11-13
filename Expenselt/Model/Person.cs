@@ -1,16 +1,10 @@
 ﻿using Expenselt.Model.Abstract;
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Windows;
 
 namespace Expenselt.Model
 {
-    public class Person :   INotifyPropertyChanged
+    public class Person : AbstractNotificationObject
     {
 
         private ObservableCollection<Contact> _contacts;
@@ -26,18 +20,9 @@ namespace Expenselt.Model
             }
             set {
                 _contacts = value;
-                this.RaisePropertyChanged("Contacts");
+                RaisePropertyChanged("Contacts");
             }
         }
-
-        // Create the OnPropertyChanged method to raise the event
-        private void RaisePropertyChanged(string prop)
-        {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
+        public ICollection<Estado> Estados { get; set; }
     }
 }

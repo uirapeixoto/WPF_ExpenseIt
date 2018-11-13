@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Expenselt.Model
 {
-    public class Estados
+    public class Estado
     {
         public int Id { get; set; }
         public string UF { get; set; }
-        public string Estado { get; set; }
+        public string Nome { get; set; }
 
     }
 }

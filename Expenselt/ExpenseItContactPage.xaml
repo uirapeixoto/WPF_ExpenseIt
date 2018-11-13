@@ -90,7 +90,16 @@
                             <DataGridTextColumn Width="10" IsReadOnly="True" Binding="{Binding Description}" Header="Id" Visibility="Collapsed"/>
                             <DataGridTextColumn Width="80" IsReadOnly="True" CellStyle="{StaticResource listHeaderRowStyle}" Binding="{Binding Description}"  Header="Description"/>
                             <DataGridTextColumn Width="120" Binding="{Binding Value}"  Header="Value"/>
-                            <DataGridTextColumn Width="120" Binding="{Binding Value}"  Header="Value" />
+                            <DataGridComboBoxColumn x:Name="EstadosCombo"
+                                    SelectedValueBinding="{Binding Value}" 
+                                    DisplayMemberPath="UF" 
+                                    SelectedValuePath="UF">
+                                <DataGridComboBoxColumn.ElementStyle>
+                                    <Style TargetType="{x:Type ComboBox}">
+                                        <Setter Property="ItemsSource" Value="{Binding Path=Estados, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
+                                    </Style>
+                                </DataGridComboBoxColumn.ElementStyle>
+                            </DataGridComboBoxColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

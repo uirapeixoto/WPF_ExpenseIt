@@ -1,4 +1,7 @@
-﻿
+﻿using Expenselt.Services;
+using System.Collections;
+using System.Collections.Generic;
+
 namespace Expenselt.Model
 {
     public class Contact
@@ -7,7 +10,6 @@ namespace Expenselt.Model
         public string Description { get; set; }
         public string Value { get; set; }
         public Person Person { get; set; }
-        public Estado Estado { get; set; }
 
     }
 }
