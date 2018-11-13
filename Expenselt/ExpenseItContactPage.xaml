@@ -2,11 +2,18 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:Converters="clr-namespace:Expenselt.Converters"
       xmlns:local="clr-namespace:Expenselt"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="800"
       Title="ExpenseItContact">
+
+    <Page.Resources>
+        <Converters:ComboEstadosConverter x:Key="ComboEstadosConverter"/>
+        <Converters:ValueVisibleConverter x:Key="ValueVisibleConverter"/>
+        <CollectionViewSource x:Key="EstadosLisCombo" Source="{Binding Estados}"/>
+    </Page.Resources>
 
     <Grid>
         <Grid.Background>
@@ -88,18 +95,43 @@
 
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="10" IsReadOnly="True" Binding="{Binding Description}" Header="Id" Visibility="Collapsed"/>
-                            <DataGridTextColumn Width="80" IsReadOnly="True" CellStyle="{StaticResource listHeaderRowStyle}" Binding="{Binding Description}"  Header="Description"/>
-                            <DataGridTextColumn Width="120" Binding="{Binding Value}"  Header="Value"/>
-                            <DataGridComboBoxColumn x:Name="EstadosCombo"
-                                    SelectedValueBinding="{Binding Value}" 
-                                    DisplayMemberPath="UF" 
-                                    SelectedValuePath="UF">
-                                <DataGridComboBoxColumn.ElementStyle>
-                                    <Style TargetType="{x:Type ComboBox}">
-                                        <Setter Property="ItemsSource" Value="{Binding Path=Estados, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-                                    </Style>
-                                </DataGridComboBoxColumn.ElementStyle>
-                            </DataGridComboBoxColumn>
+                            <DataGridTextColumn x:Name="ElementDescription" Width="80" IsReadOnly="True" CellStyle="{StaticResource listHeaderRowStyle}" Binding="{Binding Description }"  Header="Description"/>
+                            <DataGridTextColumn x:Name="ElementValue" Width="120" Header="Value"
+                                                Visibility="{ Binding Description, Converter={StaticResource ValueVisibleConverter } }"
+                                                Binding="{ Binding Value }" />
+                            <DataGridTemplateColumn Header="Value">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <ComboBox 
+                                            Visibility="{Binding Description,Converter={StaticResource ValueVisibleConverter}}" 
+                                            ItemsSource="{Binding Source={StaticResource EstadosLisCombo} }"
+                                            DisplayMemberPath="Nome" 
+                                            SelectedValuePath="Nome"  
+                                            SelectedValue="{Binding Value }" IsReadOnly="True" IsDropDownOpen="True" >
+                                        </ComboBox>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridComboBoxColumn x:Name="EstadosCombo" Header="Value" 
+                                    ItemsSource="{Binding Source={StaticResource EstadosLisCombo} }"
+                                    SelectedValueBinding="{Binding Value}"
+                                    DisplayMemberPath="Nome" />
+                            <DataGridTemplateColumn Header="Status" Width="100">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding Nome}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+
+                                <DataGridTemplateColumn.CellEditingTemplate>
+                                    <DataTemplate>
+                                        <ComboBox Height="22" 
+                                      ItemsSource="{Binding Source={StaticResource Estados}}"
+                                      SelectedItem="{Binding Nome}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellEditingTemplate>
+
+                            </DataGridTemplateColumn>
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>

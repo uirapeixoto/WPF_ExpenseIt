@@ -158,6 +158,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Converters\ComboEstadosConverter.cs" />
+    <Compile Include="Converters\ValueVizibleConverter.cs" />
     <Compile Include="ExpenseItContactPage.xaml.cs">
       <DependentUpon>ExpenseItContactPage.xaml</DependentUpon>
     </Compile>

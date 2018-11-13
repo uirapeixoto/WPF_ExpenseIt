@@ -20,13 +20,17 @@ namespace Expenselt
         public ExpenseItContactPage()
         {
             InitializeComponent();
+
         }
 
         public ExpenseItContactPage(object data) :  this()
         {
             _person = data as Person;
-            var service = new ContactServices();
-            _person.Contacts = service.GetContactsByPerson(_person.Id);
+            var contactService = new ContactServices();
+            var estadoSevice = new EstadoService();
+
+            _person.Contacts = contactService.GetContactsByPerson(_person.Id);
+            _person.Estados = estadoSevice.GetEstados();
 
             this.DataContext = _person;
         }
@@ -40,14 +44,11 @@ namespace Expenselt
                 new Contact{ Person = _person, Description = "Estado",Value = "" }
             };
 
-
             var contactService = new ContactServices();
             var estadosService = new EstadoService();
 
             _person.Contacts = contactService.GetContactsByPerson(_person.Id);
             _person.Contacts.AddRange(contact);
-
-            _person.Estados = estadosService.GetEstados();
 
             this.DataContext = _person;
 

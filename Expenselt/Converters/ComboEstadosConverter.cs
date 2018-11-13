@@ -10,11 +10,12 @@ using System.Windows.Data;
 namespace Expenselt.Converters
 {
     [ValueConversion(typeof(EstadoService), typeof(Dictionary<string, string>))]
-    class ComboEstadosConverter : IValueConverter
+    public class ComboEstadosConverter : IValueConverter
     {
         #region IValueConverter Members
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
+
             Dictionary<string, string> listaItens = new Dictionary<string, string>();
             var service = new EstadoService();
             foreach(var item in service.GetEstados())
@@ -22,7 +23,10 @@ namespace Expenselt.Converters
                 listaItens.Add(item.Nome, item.Nome);
             }
 
-            return listaItens;
+            if (value.ToString().ToLower().Equals("estado"))
+                return listaItens;
+            else
+                return value;
             
         }
 
