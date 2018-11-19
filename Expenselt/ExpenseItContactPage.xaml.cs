@@ -47,18 +47,18 @@ namespace Expenselt
             var contactService = new ContactServices();
             var estadosService = new EstadoService();
 
-            _person.Contacts = contactService.GetContactsByPerson(_person.Id);
+           // _person.Contacts = contactService.GetContactsByPerson(_person.Id);
             _person.Contacts.AddRange(contact);
 
             this.DataContext = _person;
-
         }
 
         private void SalvarContatoCommand(object sender, RoutedEventArgs e)
         {
             var contacts = _person.Contacts;
             var gridContact = GridContacts.DataContext;
-            
+            this.DataContext = _person;
         }
+
     }
 }

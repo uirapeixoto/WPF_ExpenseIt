@@ -158,6 +158,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Components\EditableTextBlock.cs" />
+    <Compile Include="Components\EditableTextBlockAdorner.cs" />
     <Compile Include="Converters\ComboEstadosConverter.cs" />
     <Compile Include="Converters\ValueVizibleConverter.cs" />
     <Compile Include="ExpenseItContactPage.xaml.cs">
@@ -170,6 +172,7 @@
     <Compile Include="Model\Expense.cs" />
     <Compile Include="Model\Person.cs" />
     <Compile Include="Services\ContactServices.cs" />
+    <Compile Include="Services\EstadoComboListService.cs" />
     <Compile Include="Services\EstadoService.cs" />
     <Compile Include="Services\ExpenseService.cs" />
     <Compile Include="Services\PersonService.cs" />

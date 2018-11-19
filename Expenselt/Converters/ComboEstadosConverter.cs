@@ -16,11 +16,11 @@ namespace Expenselt.Converters
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
 
-            Dictionary<string, string> listaItens = new Dictionary<string, string>();
+            IList<string> listaItens = new List<string>();
             var service = new EstadoService();
             foreach(var item in service.GetEstados())
             {
-                listaItens.Add(item.Nome, item.Nome);
+                listaItens.Add(item.Nome);
             }
 
             if (value.ToString().ToLower().Equals("estado"))

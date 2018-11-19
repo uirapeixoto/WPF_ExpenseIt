@@ -9,9 +9,16 @@ namespace Expenselt.Converters
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value.ToString().ToLower().Equals("estado"))
-                return Visibility.Visible;
-
+            if ((parameter != null ) ? parameter.ToString().ToLower().Equals("inverter"):false)
+            {
+                if (value.ToString().ToLower().Equals("estado"))
+                    return Visibility.Collapsed;
+            }
+            else if (value.ToString().ToLower().Equals("estado")) { 
+                    return Visibility.Visible;
+            }
+            
+            
             return Visibility.Collapsed;
         }
 
