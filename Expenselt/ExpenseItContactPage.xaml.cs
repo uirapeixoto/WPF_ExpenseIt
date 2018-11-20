@@ -55,7 +55,7 @@ namespace Expenselt
 
         private void SalvarContatoCommand(object sender, RoutedEventArgs e)
         {
-            var contacts = _person.Contacts;
+            var contacts = _person.Contacts.Where(x => x.Value != null);
             var gridContact = GridContacts.DataContext;
             this.DataContext = _person;
         }

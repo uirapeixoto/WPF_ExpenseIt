@@ -161,6 +161,7 @@
     <Compile Include="Components\EditableTextBlock.cs" />
     <Compile Include="Components\EditableTextBlockAdorner.cs" />
     <Compile Include="Converters\ComboEstadosConverter.cs" />
+    <Compile Include="Converters\InputTypeConverter.cs" />
     <Compile Include="Converters\ValueVizibleConverter.cs" />
     <Compile Include="ExpenseItContactPage.xaml.cs">
       <DependentUpon>ExpenseItContactPage.xaml</DependentUpon>

@@ -1,19 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Expenselt.Model.Abstract;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace Expenselt.Components
 {
-    public class EditableTextBlock : TextBlock
+    public class EditableTextBlock :  TextBlock
     {
+        private EditableTextBlockAdorner _adorner;
+
+        public EditableTextBlock()
+        {
+            _adorner = new EditableTextBlockAdorner(this);
+        }
+
         public bool IsInEditMode
         {
             get
@@ -25,8 +27,6 @@ namespace Expenselt.Components
                 SetValue(IsInEditModeProperty, value);
             }
         }
-
-        private EditableTextBlockAdorner _adorner;
 
         // Using a DependencyProperty as the backing store for IsInEditMode.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty IsInEditModeProperty =
@@ -61,6 +61,7 @@ namespace Expenselt.Components
                 }
                 else
                 {
+
                     //Remove the adorner from the adorner layer.
                     Adorner[] adorners = layer.GetAdorners(textBlock);
                     if (adorners != null)

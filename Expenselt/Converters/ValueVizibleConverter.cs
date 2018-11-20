@@ -14,7 +14,7 @@ namespace Expenselt.Converters
                 if (value.ToString().ToLower().Equals("estado"))
                     return Visibility.Collapsed;
             }
-            else if (value.ToString().ToLower().Equals("estado")) { 
+            else if (!string.IsNullOrEmpty(value.ToString()) && value.ToString().ToLower().Equals("estado")) { 
                     return Visibility.Visible;
             }
             

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Expenselt.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Expenselt.Services
 {
-    public class EstadoComboListService : Dictionary<string,string>
+    public class EstadoComboListService : List<string>
     {
         private EstadoService service;
         public EstadoComboListService()
@@ -14,7 +15,7 @@ namespace Expenselt.Services
             service = new EstadoService();
             var itemList = service.GetEstados();
             foreach (var item in itemList)
-                this.Add(item.UF, item.Nome);
+                this.Add(item.Nome.ToString());
         }
     }
 }
