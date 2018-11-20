@@ -14,6 +14,7 @@
     <Page.Resources>
         <Converters:ComboEstadosConverter x:Key="ComboEstadosConverter"/>
         <Converters:ValueVisibleConverter x:Key="ValueVisibleConverter"/>
+        <Converters:ValueVisibleConverter x:Key="DesabilitarQuandoEstadoConverter"/>
         <staticData:EstadoComboListService x:Name="EstadoComboListService" x:Key="EstadoComboListService" />
     </Page.Resources>
 
@@ -106,7 +107,7 @@
                                                     Visibility="{Binding Path=Description, Converter={StaticResource ValueVisibleConverter}, ConverterParameter='inverter'}" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate x:Name="TextValue">
-                                        <TextBlock Text="{Binding Value, Mode=TwoWay}" />
+                                        <TextBox Text="{Binding Value, Mode=TwoWay}" IsReadOnly="{Binding Description, Converter={ StaticResource DesabilitarQuandoEstadoConverter}}" IsEnabled="{Binding Description, Converter={ StaticResource DesabilitarQuandoEstadoConverter}}"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellEditingTemplate>
