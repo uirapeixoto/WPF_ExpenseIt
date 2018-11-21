@@ -14,10 +14,10 @@
     <Page.Resources>
         <Converters:ComboEstadosConverter x:Key="ComboEstadosConverter"/>
         <Converters:ValueVisibleConverter x:Key="ValueVisibleConverter"/>
-        <Converters:ValueVisibleConverter x:Key="DesabilitarQuandoEstadoConverter"/>
+        <Converters:DesabilitarQuandoEstadoConverter x:Key="DesabilitarQuandoEstadoConverter"/>
+        <Converters:SomenteLeituraQuandoEstadoConverter x:Key="SomenteLeituraQuandoEstadoConverter"/>
         <staticData:EstadoComboListService x:Name="EstadoComboListService" x:Key="EstadoComboListService" />
     </Page.Resources>
-
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="watermark.png" />
@@ -100,24 +100,21 @@
                             <DataGridTextColumn x:Name="ElementDescription" Width="80" IsReadOnly="True" Header="Description"
                                                 CellStyle="{StaticResource listHeaderRowStyle}" 
                                                 Binding="{Binding Description }"  />
-                            <DataGridTextColumn x:Name="ElementValue" Width="80" Header="Value" 
-                                                Visibility="{Binding Path=Description, Converter={StaticResource ValueVisibleConverter}}"
-                                                Binding="{Binding Value }" />
-                            <DataGridTemplateColumn x:Name="DataValue" Header="ValueMask" Width="100" 
-                                                    Visibility="{Binding Path=Description, Converter={StaticResource ValueVisibleConverter}, ConverterParameter='inverter'}" >
+                            <DataGridTemplateColumn x:Name="DataValue" Header="ValueMask" Width="100"  >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate x:Name="TextValue">
-                                        <TextBox Text="{Binding Value, Mode=TwoWay}" IsReadOnly="{Binding Description, Converter={ StaticResource DesabilitarQuandoEstadoConverter}}" IsEnabled="{Binding Description, Converter={ StaticResource DesabilitarQuandoEstadoConverter}}"/>
+                                        <TextBox Background="Transparent" BorderThickness="0" TextWrapping="Wrap" 
+                                                Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
+                                                IsReadOnly="{ Binding Path=Description, Converter={ StaticResource SomenteLeituraQuandoEstadoConverter }}" 
+                                                IsEnabled="{ Binding Path=Description, Converter={ StaticResource DesabilitarQuandoEstadoConverter }}"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellEditingTemplate>
-                                    <DataTemplate x:Name="ComboValeu">
+                                    <DataTemplate x:Name="ComboValue">
                                         <ComboBox Height="22" 
                                           Visibility="{Binding Path=Description, Converter={StaticResource ValueVisibleConverter}}" 
                                           ItemsSource="{ StaticResource EstadoComboListService }"
-                                                  DisplayMemberPath="Value"
-                                                  SelectedValuePath="key"
-                                          SelectedItem="{Binding Value, Mode=TwoWay}"/>
+                                          SelectedItem="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellEditingTemplate>
                             </DataGridTemplateColumn>

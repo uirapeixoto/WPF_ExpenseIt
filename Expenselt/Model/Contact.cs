@@ -4,8 +4,7 @@ namespace Expenselt.Model
 {
     public class Contact : AbstractNotificationObject
     {
-        private bool _edit;
-        private string _nome { get; set; }
+        private string _value { get; set; }
 
         public int Id { get; set; }
         public string Description { get; set; }
@@ -15,28 +14,15 @@ namespace Expenselt.Model
         {
             get
             {
-                return _nome;
+                return _value;
             }
             set
             {
-                _nome = value;
-                Edit = false;
+                _value = value;
                 RaisePropertyChanged("Nome");
             }
         }
 
-        public bool Edit
-        {
-            get
-            {
-                return _edit;
-            }
-            set
-            {
-                _edit = value;
-                RaisePropertyChanged("Edit");
-            }
-        }
-
+        
     }
 }

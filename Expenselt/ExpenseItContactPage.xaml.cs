@@ -2,7 +2,6 @@
 using Expenselt.Model.Abstract;
 using Expenselt.Services;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -58,6 +57,12 @@ namespace Expenselt
             var contacts = _person.Contacts.Where(x => x.Value != null);
             var gridContact = GridContacts.DataContext;
             this.DataContext = _person;
+        }
+
+        private void DataValue_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            //DataGridTemplateColumn obj = sender as DataGridTemplateColumn;
+            MessageBox.Show("Teste","Mensagem");
         }
 
     }

@@ -158,11 +158,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Commands\AlterCellEditCommand.cs" />
+    <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Components\EditableTextBlock.cs" />
     <Compile Include="Components\EditableTextBlockAdorner.cs" />
     <Compile Include="Converters\ComboEstadosConverter.cs" />
     <Compile Include="Converters\DesabilitarQuandoEstadoConverter.cs" />
     <Compile Include="Converters\InputTypeConverter.cs" />
+    <Compile Include="Converters\SomenteLeituraQuandoEstadoConverter.cs" />
     <Compile Include="Converters\ValueVizibleConverter.cs" />
     <Compile Include="ExpenseItContactPage.xaml.cs">
       <DependentUpon>ExpenseItContactPage.xaml</DependentUpon>
