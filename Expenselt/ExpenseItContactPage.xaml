@@ -81,7 +81,7 @@
 
                 </StackPanel>
             </Grid>
-            <Grid Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Grid Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2" Width="400" VerticalAlignment="Top" HorizontalAlignment="Left">
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" >
                     <Button  Height="30"  x:Name="Add" ToolTip="Adicionar"   Margin="10,10,0,300" Width="30" Click="IncluirContatoCommand">
                         <Image Source=".\Assets\Img\toggle-show.png" />
@@ -97,16 +97,22 @@
                               AutoGenerateColumns="False" Margin="10,105,63,322" Grid.Row="3" >
                         <DataGrid.Columns>
                             <DataGridTextColumn Width="10" IsReadOnly="True" Binding="{Binding Description}" Header="Id" Visibility="Collapsed"/>
-                            <DataGridTextColumn x:Name="ElementDescription" Width="80" IsReadOnly="True" Header="Description"
+                            <DataGridTextColumn x:Name="ElementDescription" Width="100" IsReadOnly="True" Header="Description"
                                                 CellStyle="{StaticResource listHeaderRowStyle}" 
                                                 Binding="{Binding Description }"  />
-                            <DataGridTemplateColumn x:Name="DataValue" Header="ValueMask" Width="100"  >
+                            <DataGridTemplateColumn x:Name="DataValue" Header="ValueMask" Width="200" >
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate x:Name="TextValue">
                                         <TextBox Background="Transparent" BorderThickness="0" TextWrapping="Wrap" 
                                                 Text="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" 
                                                 IsReadOnly="{ Binding Path=Description, Converter={ StaticResource SomenteLeituraQuandoEstadoConverter }}" 
-                                                IsEnabled="{ Binding Path=Description, Converter={ StaticResource DesabilitarQuandoEstadoConverter }}"/>
+                                                IsEnabled="{ Binding Path=Description, Converter={ StaticResource DesabilitarQuandoEstadoConverter }}">
+                                            <TextBox.ToolTip>
+                                                <TextBlock>
+                                                        <Italic Foreground="Red">Instruções: </Italic> Clique no campo para editar.
+                                                </TextBlock>
+                                            </TextBox.ToolTip>
+                                        </TextBox>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                                 <DataGridTemplateColumn.CellEditingTemplate>
@@ -114,7 +120,13 @@
                                         <ComboBox Height="22" 
                                           Visibility="{Binding Path=Description, Converter={StaticResource ValueVisibleConverter}}" 
                                           ItemsSource="{ StaticResource EstadoComboListService }"
-                                          SelectedItem="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                                          SelectedItem="{Binding Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}">
+                                            <ComboBox.ToolTip>
+                                                <TextBlock>
+                                                        <Italic Foreground="Red">Instruções: </Italic> Clique duas vezes no campo para editar.
+                                                </TextBlock>
+                                            </ComboBox.ToolTip>
+                                        </ComboBox>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellEditingTemplate>
                             </DataGridTemplateColumn>
